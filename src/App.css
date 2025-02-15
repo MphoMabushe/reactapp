@@ -36,3 +36,110 @@
     transform: rotate(360deg);
   }
 }
+body{background-color:white;
+  font-family: "Merriweather Sans", sans-serif;
+  }
+
+.weather-contents{background-color: antiquewhite;
+      max-width: 600px;
+      margin: 30px auto;
+      padding:30px;
+      border-radius: 10px ;
+      box-shadow : 0px 30px 50px rgb(65, 1, 62,0.09);
+}
+
+.search-box{background-color: plum;
+      padding: 15px 20px;
+      border-radius: 6px;
+      font-size: 16px;
+      border: none;
+      width: 80%;
+}
+.search-button{background-color:palevioletred;
+         padding: 15px 30px;
+         border: none;
+         font-size: 16px;
+         margin-left: 5px;
+         border-radius: 6px;
+         color: white;
+}
+.city-input{
+      margin:0;
+      font-size: 38px;
+      line-height:48px;
+}
+.weather-features{ font-size:16px;
+      line-height:20px;
+      color:#A9A6B3;
+      font-weight: 500;
+}
+.weather-features strong{
+    color: rgb(206, 47, 255);
+}
+.temperature-details{
+      display: flex;
+}
+.temperature-number{
+      line-height: 88px;
+      font-size: 88px;
+      font-weight:bold;
+}
+.temperature-emoji{
+   width: 88px; 
+   height: 88px;  
+}
+.temperature-degrees{
+   font-size: 30px;
+   margin-top: 6px;
+}
+main{
+      padding:30px 0 ;
+}
+header{
+      border-bottom:1px solid white ;
+ padding:0 0 30px 0;
+}
+footer{
+      border-top: 1px solid white ;
+padding: 30px 0 0;
+font-size:14px ;
+color:rgba(87, 78, 78, 0.74);
+text-align: center;
+}
+a{color:rgb(85, 88, 218);
+}
+.weather-details{
+      display: flex;
+      justify-content: space-between;
+}
+br{color: #000;}
+.weather-forecast{
+      margin-top: 20px;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #000;
+      display: flex;
+      justify-content: space-between;
+}
+.weather-forecast-date{
+      font-size: 16px;
+      opacity: 0.5;
+}
+.weather-forecast-temperature{
+font-size: 13px;
+
+}
+.weather-forecast-icon{
+      width: 88px;
+      height: 88px;
+      margin: 0 auto;
+      display: block;
+}
+.maximum-temperature{
+      font-weight: bold;
+}
+
+.minimum-temperature{
+opacity: 0.6;
+margin-left: 15px;
+}
