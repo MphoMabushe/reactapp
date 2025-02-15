@@ -20,7 +20,9 @@ return(
           </header>
       <main>
           <div className="weather-details">
-      <h1 class="city-input" id="city"></h1>
+      <h1 class="city-input" id="city">
+        PARIS
+      </h1>
       <p class="weather-features"><span id="time"></span>,<span id="weather-type">clear sky</span>
        <br/>
        Humidity:<strong id="humidity"></strong>,Wind:<strong id="speed"></strong>
