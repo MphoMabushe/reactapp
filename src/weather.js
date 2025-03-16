@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import 'bootstrap/dist/css/bootstrap.css';
 
 export default function Weather(props){
     function handleResponse(response){
@@ -10,17 +11,18 @@ export default function Weather(props){
     
     axios.get(apiUrl).then(handleResponse);
 return(
+    <div className="container">
     <div id="root">
       <div className="weather-contents">
       <header>
-       <form class="search-form" id="search-form">
-              <input type="search" placeholder="Enter a city" required id="search-box" class="search-box"/>
-              <input type="submit" value="search" class="search-button"/>
+       <form className="search-form" id="search-form">
+              <input type="search" placeholder="Enter a city" required id="search-box" className="search-box"/>
+              <input type="submit" value="search" className="search-button"/>
           </form> 
           </header>
       <main>
           <div className="weather-details">
-      <h1 class="city-input" id="city">
+      <h1 className="city-input" id="city">
         PARIS
       </h1>
       <p class="weather-features"><span id="time"></span>,<span id="weather-type">clear sky</span>
@@ -38,9 +40,10 @@ return(
       </main>
       <div className="weather-forecast" id="forecast">
       <footer>This project was coded by <a href ="https://mpho-portfolio-d9f5d1.netlify.app/?Message=+++++++++++++++++m+++++++++++++++++++#mpho-projects" target="_blank" rel="noreferrer" >Mpho Mabushe </a>,is <a href="https://github.com/MphoMabushe/reactapp" target="_blank" rel="noreferrer">open-souced on
-  Github</a> and <a href="https://mphoweatherapp.netlify.app/" target="_blank" rel="noreferrer">hosted on Netlify</a>
+  Github</a> and <a href="https://reatrapp.netlify.app/" target="_blank" rel="noreferrer">hosted on Netlify</a>
       </footer>
   </div> 
+  </div>
   </div>
   </div>
 );
