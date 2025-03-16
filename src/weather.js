@@ -1,11 +1,10 @@
 import React from "react";
 import axios from "axios";
-import './App.css';
+import './weather.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 export default function Weather(props){
     function handleResponse(response){
-        alert(`The weather in ${response.data.name} is ${response.data.main.temp}℃ `)
     }
     let apiKey="7054937c48b3e61756fdcf53090c10fa";
     let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=${apiKey}&units=metric`;
