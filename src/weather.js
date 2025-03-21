@@ -1,50 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
+
 import './weather.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
-export default function Weather(props){
-    function handleResponse(response){
-    }
-    let apiKey="7054937c48b3e61756fdcf53090c10fa";
-    let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=${apiKey}&units=metric`;
-    
-    axios.get(apiUrl).then(handleResponse);
-return(
+
+export default function Weather(){
+  const [temperature,setTemperature]=useState(null);
+  function handleResponse(response) {
+    console.log(response.data);
+    setTemperature(response.data.main.temp)
+  }
+  let apiKey = "7054937c48b3e61756fdcf53090c10fa";
+  let city="Lisbon";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&unis=metric`;
+  axios.get(apiUrl).then(handleResponse);
+ return(
     <div className="container">
-    <div id="root">
-      <div className="weather-contents">
-      <header>
-       <form className="search-form" id="search-form">
-              <input type="search" placeholder="Enter a city" required id="search-box" className="search-box"/>
-              <input type="submit" value="search" className="search-button"/>
-          </form> 
-          </header>
-      <main>
-          <div className="weather-details">
-      <h1 className="city-input" id="city">
-        PARIS
-      </h1>
-      <p class="weather-features"><span id="time"></span>,<span id="weather-type">clear sky</span>
-       <br/>
-       Humidity:<strong id="humidity"></strong>,Wind:<strong id="speed"></strong>
-      </p>
+    <div className="weather"> 
+      <form>
+        <div className="row">
+          <div className="col-9">
+        <input type="text" placeholder="Enter a city"className="form-control" autofocus="on">
+        </input>
+        </div>
+        <div className="col-3">
+        <input type="submit" value="Search" className="btn btn-primary w-100"></input>
+        </div>
+        </div>
+      </form>
+      <h1>Lisbon</h1>
+      <ul>
+        <li>
+          Friday 13:15
+        </li>
+        <li>
+          Mostly cloudy
+        </li>
+      </ul>
+      <div className="row mt-3">
+        <div className="col-6">
+          <div className="clearfix">
+          <img src=" https://openweathermap.org/img/wn/02d@2x.png" alt="Mostly cloudly" className="float-left"/>
+          <span className="temperature float-left">{temperature}</span>
+          <span className="unit float-left">℃</span>
+          </div>
+        </div>
+        <div className="col-6">
+          <ul>
+            <li>
+              Preipitaion:15%
+            </li>
+            <li>
+              Humidity:72%
+            </li>
+            <li>
+              Wind:13km/h
+            </li>
+          </ul>
+        </div>
       </div>
-      <div>
-      <div className="temperature-details">
-      <div id="emoji"></div>
-      <div className="temperature-number" id="temperature"></div>
-      <div className="temperature-degrees">°C</div>
-      </div>
-      </div>
-      </main>
-      <div className="weather-forecast" id="forecast">
-      <footer>This project was coded by <a href ="https://mpho-portfolio-d9f5d1.netlify.app/?Message=+++++++++++++++++m+++++++++++++++++++#mpho-projects" target="_blank" rel="noreferrer" >Mpho Mabushe </a>,is <a href="https://github.com/MphoMabushe/reactapp" target="_blank" rel="noreferrer">open-souced on
-  Github</a> and <a href="https://reatrapp.netlify.app/" target="_blank" rel="noreferrer">hosted on Netlify</a>
-      </footer>
-  </div> 
-  </div>
-  </div>
+    </div>
   </div>
 );
 }
