@@ -10,7 +10,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 export default function Weather(props){
   const [weatherdata,setWeatherdata]=useState({ready:false});
   const[city,setCity]=useState(props.defaultCity);
-
   function handleResponse(response) {
     setWeatherdata({
       ready:true,
@@ -18,8 +17,8 @@ export default function Weather(props){
       wind: response.data.wind.speed,
       date:new Date(response.data.dt*1000),
       humidity:response.data.main.humidity,
-      city: response.data.name,
-      iconUrl: response.data.weather[0].icon,
+      city:response.data.name,
+      icon:response.data.weather[0].icon,
       description:response.data.weather[0].description
     }
     )}
