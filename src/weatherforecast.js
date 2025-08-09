@@ -8,23 +8,25 @@ export default function WeatherForecast(props) {
       function handleResponse(response) {
        console.log(response.data)
       }
-    let apiKey="7746bdeabca928cfedcad71e52fd9d66";
-    let longtitude = props.coordinates.lon;
-    let lattitude= props.coordinates.lat;
-    let apiUrl=`https://api.openweathermap.org/data/2.5/onecall?lat=${lattitude}&lon=${longtitude}&appid=${apiKey}&units=metric`;
+    let apiKey="31o84e907eeba386aabt3500e710ff10";
+    let longtitude = props.coordinates.longtitude;
+    let lattitude= props.coordinates.lattitude;
+    let apiUrl=`https://api.shecodes.io/weather/v1/forecast?lon=${longtitude}&lat=${lattitude}&key=${apiKey}`;
    
-    console.log(apiUrl);
+    
     axios.get(apiUrl).then(handleResponse);
+    console.log(apiUrl);
     return(
         <div className="weatherforecast">
        <div className="row">
         <div className="col">
-            <div className="weatherforecas-day">
+            <div className="weatherforecast-day">
            Thu
             </div>
             <WeatherIcon code="01d" size="32"/>
            <div className="weatherforecast-temp">
-          <span className="weatherforecastmax-temp">19°</span><span className="weatherforecastmin-temp">18°</span>
+          <span className="weatherforecastmax-temp">19°</span>
+          <span className="weatherforecastmin-temp">18°</span>
            </div>
         </div>
        </div>
