@@ -1,6 +1,9 @@
 import React from "react";
 
+
 export default function FormattedDate(props){
+    if (!props.date || !(props.date instanceof Date)) {
+    return <div>Loading date...</div>;}
     let days=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
     let day=days[props.date.getDay()]
     let hours=props.date.getHours()

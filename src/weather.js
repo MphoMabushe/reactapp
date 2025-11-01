@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import WeatherInfo from "./weatherinfo";
 import WeatherForecast from "./weatherforecast";
+import FormattedDate from "./formattedDate";
 
 import './weather.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -14,34 +15,23 @@ export default function Weather(props){
   function handleResponse(response) {
     setWeatherdata({
       ready:true,
-      coordinates: response.data.coord,
-      temperature: response.data.main.temp,
+      coordinates: response.data.coordinates,
+      temperature: response.data.temperature.current,
       wind: response.data.wind.speed,
-      date:new Date(response.data.dt*1000),
-      humidity:response.data.main.humidity,
-      city:response.data.name,
-      icon:response.data.weather[0].icon,
-      description:response.data.weather[0].description
-    }
-    )}
-   function iconhandleResponse(response) {
-    setWeatherdata({
-      ready:true,
+      date:new Date(response.data.time*1000),
+      humidity:response.data.temperature.humidity,
       city:response.data.city,
-      icon:response.data.condition.icon_url
+      description:response.data.condition.description,
+      icon:response.data.condition.icon
     }
     )}
-     
+   
     function search(){
-      let apiKey = "7054937c48b3e61756fdcf53090c10fa";
-      let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+      let apiKey = "31o84e907eeba386aabt3500e710ff10";
+      let apiUrl=`https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
       axios.get(apiUrl).then(handleResponse);
   }
-  function iconsearch(){
-let apiKey = "31o84e907eeba386aabt3500e710ff10"
-let apiUrl=`https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
-    axios.get(apiUrl).then(iconhandleResponse);
-  }
+
   
   function handleSubmit(event) {
     event.preventDefault();
@@ -67,13 +57,13 @@ let apiUrl=`https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKe
       </form>
       <WeatherInfo data={weatherdata}/>
       <WeatherForecast  coordinates={weatherdata.coordinates}/>
+      <FormattedDate date={weatherdata.date} /> 
       </div>
     </div>
 );
   }
   else{
     search();
-    iconsearch();
     return "loading..."
   }
 
