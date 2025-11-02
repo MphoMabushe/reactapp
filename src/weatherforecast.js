@@ -17,6 +17,14 @@ useEffect(()=>{
        setForecast(response.data.daily)
        setLoaded(true);
       }
+
+      function load() {
+        let apiKey="31o84e907eeba386aabt3500e710ff10";
+    let longtitude=props.coordinates.longitude;
+    let lattitude=props.coordinates.latitude;
+    let apiUrl=`https://api.shecodes.io/weather/v1/forecast?lon=${longtitude}&lat=${lattitude}&key=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+      }
       if(loaded){
     return(
         <div className="weatherforecast">
@@ -38,9 +46,6 @@ useEffect(()=>{
     );}
     
       else{
-      let apiKey="31o84e907eeba386aabt3500e710ff10";
-    let longtitude=props.coordinates.longitude;
-    let lattitude=props.coordinates.latitude;
-    let apiUrl=`https://api.shecodes.io/weather/v1/forecast?lon=${longtitude}&lat=${lattitude}&key=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleResponse);
+        load()
+      return null;  
     }}
