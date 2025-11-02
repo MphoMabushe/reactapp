@@ -3,9 +3,8 @@ import axios from "axios";
 import WeatherInfo from "./weatherinfo";
 import WeatherForecast from "./weatherforecast";
 
-
-import './weather.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import './weather.css';
 
 
 export default function Weather(props){
